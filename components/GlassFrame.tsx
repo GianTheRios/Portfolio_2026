@@ -92,16 +92,16 @@ export default function GlassFrame({
         {children}
       </div>
 
-      {/* Mouse-following light effect overlay */}
+      {/* Mouse-following light effect overlay - ON TOP of content */}
       {isHovering && (
         <div
           style={{
             position: 'absolute',
             inset: 0,
             borderRadius: '28px',
-            background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(255, 255, 255, 0.2) 0%, transparent 50%)`,
+            background: `radial-gradient(circle at ${mousePos.x}% ${mousePos.y}%, rgba(255, 255, 255, 0.3) 0%, transparent 50%)`,
             pointerEvents: 'none',
-            zIndex: 2
+            zIndex: 20
           }}
         />
       )}

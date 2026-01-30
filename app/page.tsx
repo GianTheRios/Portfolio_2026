@@ -22,133 +22,159 @@ export default function Home() {
       <div className="gradient-orb gradient-orb-2" />
       <div className="gradient-orb gradient-orb-3" />
 
-      {/* Bento Grid */}
+      {/* Bento Grid - 4 cols × 3 rows */}
       <div className="bento-grid">
-        {/* Hero - Large */}
-        <GlassFrame
-          className="col-span-2 row-span-2"
-          glowColor="red"
-          onClick={() => toggle('hero')}
-        >
-          <div className="h-full flex flex-col justify-between min-h-[260px]">
-            <div className="text-label">Content & Growth Marketing</div>
-            <div>
-              <h1 className="text-display">
-                Giancarlo Rios
-              </h1>
-              <p className="text-body mt-2">Lead Content Marketing Manager @ Polygon Labs</p>
+        {/* 1. GIANCARLO - Hero (2 cols × 2 rows) */}
+        <div className="col-span-2 row-span-2 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="red"
+            onClick={() => toggle('hero')}
+          >
+            <div className="h-full flex flex-col justify-between">
+              <div className="text-label">Content & Growth Marketing</div>
+              <div>
+                <h1 className="text-display">
+                  Giancarlo Rios
+                </h1>
+                <p className="text-body mt-2">Lead Content Marketing Manager @ Polygon Labs</p>
+              </div>
+              <div className="w-16 h-16 rounded-2xl accent-red flex items-center justify-center text-white text-2xl shadow-lg">
+                G
+              </div>
             </div>
-            <div className="w-16 h-16 rounded-2xl accent-red flex items-center justify-center text-white text-2xl shadow-lg">
-              G
-            </div>
-          </div>
-        </GlassFrame>
+          </GlassFrame>
+        </div>
 
-        {/* Photo */}
-        <GlassFrame
-          className="col-span-1 row-span-2"
-          glowColor="blue"
-          onClick={() => toggle('about')}
-        >
-          <div className="h-full min-h-[260px] relative rounded-xl overflow-hidden" style={{ margin: '-20px', height: 'calc(100% + 40px)' }}>
-            <Image
-              src="/images/portrait.jpg"
-              alt="Giancarlo"
-              fill
-              className="object-cover object-top"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-5 text-white">
-              <div className="text-label text-white/70">About</div>
-              <div className="font-semibold">View Bio →</div>
+        {/* 2. PHOTO - Tall (1 col × 2 rows) */}
+        <div className="col-span-1 row-span-2 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="blue"
+            onClick={() => toggle('about')}
+          >
+            <div className="h-full relative rounded-lg overflow-hidden pointer-events-none">
+              <Image
+                src="/images/portrait.jpg"
+                alt="Giancarlo"
+                fill
+                className="object-cover object-center pointer-events-none"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 text-white">
+                <div className="text-label text-white/70">About</div>
+                <div className="font-semibold">View Bio →</div>
+              </div>
             </div>
-          </div>
-        </GlassFrame>
+          </GlassFrame>
+        </div>
 
-        {/* Stats */}
-        <GlassFrame
-          className="col-span-1"
-          glowColor="green"
-          onClick={() => toggle('stats')}
-        >
-          <div className="text-label mb-2">Impact</div>
-          <div className="text-4xl font-bold">11+</div>
-          <div className="text-body text-sm">years in growth</div>
-          <div className="mt-4 h-2 rounded-full bg-black/10 overflow-hidden">
-            <motion.div
-              className="h-full accent-green rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: '92%' }}
-              transition={{ duration: 1, delay: 0.5 }}
-            />
-          </div>
-        </GlassFrame>
-
-        {/* Experience */}
-        <GlassFrame
-          className="col-span-2"
-          glowColor="purple"
-          onClick={() => toggle('experience')}
-        >
-          <div className="flex justify-between items-start">
-            <div>
-              <div className="text-label mb-2">Experience</div>
-              <div className="text-title">Polygon Labs</div>
-              <div className="text-body text-sm">Lead Content Marketing Manager</div>
+        {/* 3. STATS - Small (1 col × 1 row) */}
+        <div className="col-span-1 row-span-1 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="green"
+            onClick={() => toggle('stats')}
+          >
+            <div className="h-full flex flex-col justify-between">
+              <div>
+                <div className="text-label mb-2">Impact</div>
+                <div className="text-4xl font-bold">11+</div>
+                <div className="text-body text-sm">years in growth</div>
+              </div>
+              <div className="h-2 rounded-full bg-black/10 overflow-hidden">
+                <motion.div
+                  className="h-full accent-green rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: '92%' }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+              </div>
             </div>
-            <div className="w-12 h-12 rounded-xl accent-purple flex items-center justify-center text-white shadow-lg">
-              P
-            </div>
-          </div>
-        </GlassFrame>
+          </GlassFrame>
+        </div>
 
-        {/* Skills */}
-        <GlassFrame
-          className="col-span-1"
-          glowColor="orange"
-          onClick={() => toggle('skills')}
-        >
-          <div className="text-label mb-2">Skills</div>
-          <div className="flex flex-wrap gap-2 mt-3">
-            {['SEO', 'UGC', 'AI Tools'].map((skill) => (
-              <span key={skill} className="px-3 py-1 rounded-full bg-black/5 text-sm">
-                {skill}
-              </span>
-            ))}
-          </div>
-          <div className="text-body text-sm mt-3">+10 more</div>
-        </GlassFrame>
-
-        {/* Projects */}
-        <GlassFrame
-          className="col-span-2"
-          glowColor="blue"
-          onClick={() => toggle('projects')}
-        >
-          <div className="flex justify-between items-start">
-            <div>
-              <div className="text-label mb-2">Campaigns</div>
-              <div className="text-title">Featured Work</div>
-              <div className="text-body text-sm mt-1">6 case studies</div>
+        {/* 4. SKILLS - Small (1 col × 1 row) */}
+        <div className="col-span-1 row-span-1 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="orange"
+            onClick={() => toggle('skills')}
+          >
+            <div className="h-full flex flex-col justify-between">
+              <div>
+                <div className="text-label mb-2">Skills</div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {['SEO', 'UGC', 'AI Tools'].map((skill) => (
+                    <span key={skill} className="px-3 py-1 rounded-full bg-black/5 text-sm">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="text-body text-sm">+10 more</div>
             </div>
-            <div className="w-12 h-12 rounded-xl accent-blue flex items-center justify-center text-white shadow-lg">
-              +
-            </div>
-          </div>
-        </GlassFrame>
+          </GlassFrame>
+        </div>
 
-        {/* Contact */}
-        <GlassFrame
-          className="col-span-1"
-          glowColor="pink"
-          onClick={() => toggle('contact')}
-        >
-          <div className="text-label mb-2">Contact</div>
-          <div className="text-title">Let&apos;s talk</div>
-          <div className="mt-4 w-10 h-10 rounded-full accent-pink flex items-center justify-center text-white shadow-lg">
-            →
-          </div>
-        </GlassFrame>
+        {/* 5. EXPERIENCE - Square (1 col × 1 row) */}
+        <div className="col-span-1 row-span-1 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="purple"
+            onClick={() => toggle('experience')}
+          >
+            <div className="h-full flex justify-between items-start">
+              <div>
+                <div className="text-label mb-2">Experience</div>
+                <div className="text-title">Polygon Labs</div>
+                <div className="text-body text-sm">Lead Content Marketing</div>
+              </div>
+              <div className="w-12 h-12 rounded-xl accent-purple flex items-center justify-center text-white shadow-lg">
+                P
+              </div>
+            </div>
+          </GlassFrame>
+        </div>
+
+        {/* 6. CAMPAIGNS - Wide (2 cols × 1 row) */}
+        <div className="col-span-2 row-span-1 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="blue"
+            onClick={() => toggle('projects')}
+          >
+            <div className="h-full flex justify-between items-start">
+              <div>
+                <div className="text-label mb-2">Campaigns</div>
+                <div className="text-title">Featured Work</div>
+                <div className="text-body text-sm mt-1">6 case studies</div>
+              </div>
+              <div className="w-12 h-12 rounded-xl accent-blue flex items-center justify-center text-white shadow-lg">
+                +
+              </div>
+            </div>
+          </GlassFrame>
+        </div>
+
+        {/* 7. CONTACT - Small (1 col × 1 row) */}
+        <div className="col-span-1 row-span-1 min-h-0">
+          <GlassFrame
+            className="h-full"
+            glowColor="pink"
+            onClick={() => toggle('contact')}
+          >
+            <div className="h-full flex flex-col justify-between">
+              <div>
+                <div className="text-label mb-2">Contact</div>
+                <div className="text-title">Let&apos;s talk</div>
+              </div>
+              <div className="w-10 h-10 rounded-full accent-pink flex items-center justify-center text-white shadow-lg">
+                →
+              </div>
+            </div>
+          </GlassFrame>
+        </div>
       </div>
 
       {/* Expanded Modal */}
